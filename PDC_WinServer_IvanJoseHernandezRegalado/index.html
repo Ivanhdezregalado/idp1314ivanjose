@@ -1,0 +1,104 @@
+<html>
+<head>
+	<title>PDC WinServer</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+<body>
+<div id="cabecera" style='display:table-row; padding: 10px;'>
+  <div style='float: left; width=20%; padding:10px;'>
+  <img src='./files/logo.png'/>
+  </div>
+  <div style='float: left;padding:10px'>
+  <ul>
+    <li><b>M&oacute;dulo:</b> <i>Sistemas Operativos</i></li>
+    <li><b>T&iacute;tulo del trabajo</b> <i>PDC WinServer</i></li>
+    <li><b>Componentes del grupo:</b> <i>Iván José Hernández Regalado</i></li>
+    <li><b>Curso Acad&eacute;mico:</b> <i>2013/2014</i></li>
+    <li><b>Fecha de entrega:</b> <i>8 de Abril de 2014</i></li>
+  </ul>
+  </div>
+</div>
+<div align="center"style='float: clear;background-color: #eeeeee; border:2px solid; border-radius:10px; padding: 10px;'>
+<p><a href='#bloque1'><b>Windows 2008 Server</b></a> | <a href='#bloque4'><b>Windows 7</b></a> | <a href='#bloque6'><b>Perfiles de dominio</b></a></p>
+</div>
+<div style='float:right;bottom:10px;right:10px;background-color: #eeeeee; border:2px solid; border-radius:10px; padding: 10px;position:fixed'>
+<p align="center" ><a href='#cabecera'><b>Cabecera</b></a></p>
+</div>
+<h1><a id='bloque1'>1.Windows 2008 Server</a></h1>
+<p><b>Configuración:</b><br/>
+Antes de empezar con las copias de seguridad configuramos la máquina virtual en modo puente y le establecemos una ip 
+estática con valor 172.16.108.131/16, el gateway y el DNS 172.16.1.1, también establecemos el grupo de trabajo "AULA108". 
+Tras hacer esto último instalamos el Cygwin junto con el servidor OpenSSH.<br/><br/>
+<img src='./files/1.png'/>
+</p>
+<h2><a id='bloque2'>1.1 Configuración DNS</a></h2>
+<p>
+	<ol type="I"><li>Ejecutamos "dcpromo" en la ventana de ejecutar para empezar con la instalación del servidor DNS<br/><br/>
+	<img width="600px" height="500px"src='./files/2.png'/></li><br/>
+	<li>Elegimos crear un dominio nuevo porque es la primera vez que vamos a configurarlo en este servidor si hubiera instalado otro
+	y quisieramos modificarlo pondríamos el de arriba.<br/><br/>
+	<img width="600px" height="500px"src='./files/3.png'/></li><br/>
+	<li>Le asginamos un nombre al Servidor de dominio de raíz debe de ser un nombre que no se pueda repetir, por ejemplo nuestro
+	nombre acabado en .IDP<br/><br/>
+	<img width="600px" height="500px"src='./files/4.png'/></li><br/>
+	<li>Al acabar lo anterior seguimos eligiendo nuestro Windows instalado en este caso un 2008 Server R2.<br/><br/>
+	<img width="600px" height="500px"src='./files/5.png'/></li><br/> 
+	<li>En el siguiente paso no tocamos nada y le damos siguiente no nos hace falta modificar nada.<br/><br/>
+	<img width="600px" height="500px"src='./files/6.png'/><br/><br/></li>
+	<li>Ya estaría terminada la instalación.</li>
+	</ol>
+</p>
+<h2><a id='bloque3'>1.2 Usuarios y grupos de dominio</a></h2>
+<p>
+	<ol type="I">
+	<li>Empezamos creando los grupos jedi y sith para luego meter los usuarios dentro de cada grupo. Para crearlos entramos en Herramientas
+	administrativas > Usuarios y grupos de Active Directory.<br/><br/>
+	<img width="600px" height="500px"src='./files/7.png'/></li><br/>
+	<li>Ahora creamos los usuarios yoda, obiwan y quigon para el grupo yedi y para el grupo sith creamos los usuarios 
+	vader, maul y emperador.<br/><br/>
+	<img src='./files/8.png'/></li><br/>
+	<li>Para meter los usuarios en cada grupo vamos al grupo y en propiedades añadimos sus respectivos miembros.<br/><br/>
+	<img src='./files/9.png'/><br/><br/><img src='./files/10.png'/><img src='./files/11.png'/></li></li>
+	</ol>
+</p>
+<h1><a id='bloque4'>2.Windows 7</a></h1>
+<p>Antes de empezar configuramos las máquinas virtuales en modo puente y le establecemos una ip 
+estática con valor 172.16.108.231/16, el gateway 172.16.1.1. y en DNS ponemos la ip de nuestro servidor DNS en este caso
+172.16.108.131 y la otra con la ip 172.16.108.031.</p>
+<img src='./files/12.png'/><img src='./files/13.png'/>
+<h2><a id='bloque5'>2.1 Equipos del dominio</a></h2>
+<p>
+	<ol type="I">
+	<li>Para empezar ponemos diferentes nombre de equipo para que no haya problemas de conexión
+	y ponemos en dominio el nombre del servidor de DNS hecho en el paso 1.1 de esta práctica. Al meter el DNS de nuestro 
+	servidor se nos abrira una ventana para entrar con un usuario y una contraseña
+	y ponemos un usuario o el administrador del servidor para empezar la conexión.<br/><br/>
+	<img width="600px" height="500px"src='./files/14.png'/><img width="600px" height="500px"src='./files/15.png'/></li><br/>
+	</ol>
+</p>
+<h1><a id='bloque6'>3.Perfiles en Windows 2008</a></h1>
+<p>
+	<ol type="I">
+	<li>Continuaremos poniendo perfiles móviles y obligatorios para cada grupo, perfiles móviles para jedi y obligatorios
+	para sith. Creamos las carpetas para que se metan dentro los datos de cada usuario y esten guardados en la máquina de dominio
+	y no en la usuaria. Y les ponemos permisos de control total a todos.<br/><br/>
+	<img width="600px" height="500px"src='./files/18.png'/></li><br/>
+	<li>Luego en cada usuario dentro de Active Directory y vamos a perfil y ponemos la ruta de la carpeta anterior para que se guarden los 
+	datos en ese sitio. Para los usuario del grupo jedi creamos una carpeta para cada uno, para los usuario de sith lo ponemos todos
+	en la carpeta sith.<br/><br/>
+	<img src='./files/19.png'/><img src='./files/20.png'/></li><br/>
+	<li>Comprobamos en una máquina windows 7 si conectandonos con un usuario cualquiera del dominio nos funciona.<br/><br/>
+	<img src='./files/21.png'/></li><br/>
+	<li>Para terminar con la práctica vamos a poner un permiso de acceso en tiempo para que los jedi solo puedan entrar de 8:00h a 14:00h y
+	los sith de 14:00h a 20:00h de la siguiente manera. En la pestaña de cuenta nos sale una opción de Horas de inicio de sesión... y la 
+	modificamos.<br/><br/>
+	<img src='./files/22.png'/><img src='./files/23.png'/></li><br/>
+	<li>Ahora comprobamos en un equipo si no deja entrar con una cuenta de sith fuera del horario indicado, si es así ya estaría
+	correctamente realizado.<br/><br/>
+	<img width="600px" height="500px" src='./files/24.png'/><img width="600px" height="500px" src='./files/25.png'/></li><br/>
+	<li>Y lo anterior con un usuario jedi que si está dentro del horario de acceso.<br/><br/>
+	<img src='./files/26.png'/></li><br/>
+	</ol>
+</p>
+</body>
+</html>
