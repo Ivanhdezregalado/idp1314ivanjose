@@ -90,6 +90,11 @@ estática con valor 172.16.108.231/16, el gateway 172.16.1.1. y en DNS ponemos l
 	<li>Tras entrar en la máquina con cada usuario, en el servidor se nos deben haber creado una carpetas acabadas en .V2 que significa que
 	todo los cambios efectuados se guardaran en esa carpeta y así convertirse en perfiles moviles.<br/><br/>
 	<img src='./files/21.png'/></li><br/>
+	<li>Para los usuarios sith convertirlos en perfiles obligatorios debemos ponerle permisos solo de lectura y ejecución para que no puedan
+	modificar la carpeta.<br/><br/>
+	<img src='./files/27.png'/></li><br/>
+	<li>Ademas debemos cambiar un archivo oculto llamado NTUSER.DAT a NTUSER.MAN de la siguiente manera:<br/><br/>
+	<img src='./files/28.png'/><img src='./files/29.png'/></li><br/>
 	<li>Para terminar con la práctica vamos a poner un permiso de acceso en tiempo para que los jedi solo puedan entrar de 8:00h a 14:00h y
 	los sith de 14:00h a 20:00h de la siguiente manera. En la pestaña de cuenta nos sale una opción de Horas de inicio de sesión... y la 
 	modificamos.<br/><br/>
