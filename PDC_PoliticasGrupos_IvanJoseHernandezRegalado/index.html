@@ -1,0 +1,89 @@
+<html>
+<head>
+	<title>PDC Politicas o directivas de grupos</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+<body>
+<div id="cabecera" style='display:table-row; padding: 10px;'>
+  <div style='float: left; width=20%; padding:10px;'>
+  <img src='./files/logo.png'/>
+  </div>
+  <div style='float: left;padding:10px'>
+  <ul>
+    <li><b>M&oacute;dulo:</b> <i>Sistemas Operativos</i></li>
+    <li><b>T&iacute;tulo del trabajo</b> <i>PDC Politicas o directivas de grupos</i></li>
+    <li><b>Componentes del grupo:</b> <i>Iván José Hernández Regalado</i></li>
+    <li><b>Curso Acad&eacute;mico:</b> <i>2013/2014</i></li>
+    <li><b>Fecha de entrega:</b> <i>12 de Mayo de 2014</i></li>
+  </ul>
+  </div>
+</div>
+<div align="center"style='float: clear;background-color: #eeeeee; border:2px solid; border-radius:10px; padding: 10px;'>
+<p><a href='#bloque1'><b>Unidades organizativas</b></a> | <a href='#bloque4'><b>Administrar las políticas de grupo</b></a></p>
+</div>
+<div style='float:right;bottom:10px;right:10px;background-color: #eeeeee; border:2px solid; border-radius:10px; padding: 10px;position:fixed'>
+<p align="center" ><a href='#cabecera'><b>Cabecera</b></a></p>
+</div>
+<h1><a id='bloque1'>1.Unidades organizativas</a></h1>
+<h2><a id='bloque2'>1.1 Crear las unidades organizativas</a></h2>
+<p>
+	<ol type="I"><li>Abrimos el administrador de usuarios y grupos de Active Directory y creamos dos unidades organizativas una para el grupo
+	jedi y otra para el grupo sith.<br/><br/>
+	<img width="600px" height="500px"src='./files/1.png'/></li><br/>
+	<li>Luego metemos a los usuarios dentro de la unidad organizativa.<br/><br/>
+	<img width="600px" height="500px"src='./files/2.png'/><img width="600px" height="500px"src='./files/3.png'/></li><br/>
+	</ol>
+</p>
+<hr/>
+<h1><a id='bloque4'>2.Administrar las políticas de grupo</a></h1>
+
+<h2><a id='bloque5'>2.1 Crear GPO</a></h2>
+<p>
+	<ol type="I">
+	<li>Para empezar abrimos "Administración de directivas de grupo" en "Herramientas administrativas" y elegimos la opción de 
+	vínculo habilitado en el GPO por defecto "Default Domain Policy" para que las unidades organizativas dentro del servidor
+	tengan por defecto esas políticas que luego vamos a modificar.<br/><br/>
+	<img width="600px" height="500px"src='./files/4.png'/><img width="600px" height="500px"src='./files/5.png'/></li><br/>
+	<li>Luego creamos un GPO para los jedi y lo vinculamos a jedi, usaremos la por defecto en los sith, así tendrán diferentes políticas.<br/><br/>
+	<img width="600px" height="500px"src='./files/23.png'/><img width="600px" height="500px"src='./files/24.png'/></li><br/>
+	</ol>
+</p>
+<hr/>
+<h2><a id='bloque6'>2.2 Modificar GPO</a></h2>
+<p>
+	<ul>
+	<li>Lo primero que debemos hacer es elegir el GPO que queremos modificar en este caso el por defecto "Default Domain Policy" y 
+	le damos con el click derecho y elegimos la opción editar para cambiar sus políticas.</li><br/>
+	<li>No permitir que se ejecute el Windows Messenger:<br/>
+	Ir a "Configuración de usuario/Directivas/Plantillas administrativas/Componentes de Windows/Windows Messenger/No permitir que se ejecute
+	Windows Messenger" y habilitarla.<br/><br/>
+	<img width="600px" height="500px"src='./files/6.png'/><img width="600px" height="500px"src='./files/7.png'/></li><br/>
+	<li>Quitar el menú ejecutar del menú inicio:<br/>
+	Ir a "Configuración de usuario/Directivas/Plantillas administrativas/Menu de Inicio y barra de tareas/Quitar el menú 
+	Ejecutar del menú Inicio" y habilitarla.<br/><br/>
+	<img width="600px" height="500px"src='./files/9.png'/><img width="600px" height="500px"src='./files/10.png'/></li><br/>
+	<li>Prohibir el acceso al Panel de control:<br/>
+	Ir a "Configuración de usuario/Directivas/Plantillas administrativas/Panel de control/Prohibir el acceso al Panel de control" y habilitarla.<br/><br/>
+	<img width="600px" height="500px"src='./files/11.png'/><img width="600px" height="500px"src='./files/12.png'/></li><br/>
+	<li>Ocultar el icono Mis sitios de red del escritorio:<br/>
+	Ir a "Configuración de usuario/Directivas/Plantillas administrativas/Escritorio/Ocultar el icono Ubicaciones de red de escritorio" y habilitarla.<br/><br/>
+	<img width="600px" height="500px"src='./files/13.png'/><img width="600px" height="500px"src='./files/14.png'/></li><br/>
+	<li>Quitar el icono Mis sitios de red del menú inicio:<br/>
+	Ir a "Configuración de usuario/Directivas/Plantillas administrativas/Menu de Inicio y barra de tareas/Quitar el icono Red del menú Inicio" y habilitarla.<br/><br/>
+	<img width="600px" height="500px"src='./files/17.png'/><img width="600px" height="500px"src='./files/18.png'/></li><br/>
+	<li>Quitar Conexiones de red del menú Inicio:<br/>
+	Ir a "Configuración de usuario/Directivas/Plantillas administrativas/Menu de Inicio y barra de tareas/Quitar el icono Ubicaciones de red del menú Inicio" y habilitarla.<br/><br/>
+	<img width="600px" height="500px"src='./files/15.png'/><img width="600px" height="500px"src='./files/16.png'/></li><br/>
+	<li>Ocultar unidades específicas en Mi PC:<br/>
+	Ir a "Configuración de usuario/Directivas/Plantillas administrativas/Componentes de Windows/Explorador de Windows/Ocultar estas
+	unidades específicas en Mi PC", restringir solo a unidades A y B y habilitarla.<br/><br/>
+	<img width="600px" height="500px"src='./files/19.png'/><img width="600px" height="500px"src='./files/20.png'/></li><br/>
+	<li>Habilitar Quitar “Conectar a unidad de red” y “Desconectar de unidad de red”:<br/>
+	Ir a "Configuración de usuario/Directivas/Plantillas administrativas/Componentes de Windows/Explorador de Windows/Quitar 
+	“Conectar a unidad de red” y “Desconectar de unidad de red”" y habilitarla.<br/><br/>
+	<img width="600px" height="500px"src='./files/21.png'/><img width="600px" height="500px"src='./files/22.png'/></li><br/>
+	</ul>
+</p>
+<hr/>
+</body>
+</html>
