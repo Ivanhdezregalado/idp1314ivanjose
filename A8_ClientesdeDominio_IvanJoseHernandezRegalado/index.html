@@ -1,0 +1,76 @@
+<html>
+<head>
+	<title>Clientes de Dominio</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+<body>
+<div id="cabecera" style='display:table-row; padding: 10px;'>
+  <div style='float: left; width=20%; padding:10px;'>
+  <img src='./files/logo.png'/>
+  </div>
+  <div style='float: left;padding:10px'>
+  <ul>
+    <li><b>M&oacute;dulo:</b> <i>Sistemas Operativos</i></li>
+    <li><b>T&iacute;tulo del trabajo</b> <i>Clientes de Dominio</i></li>
+    <li><b>Componentes del grupo:</b> <i>Iván José Hernández Regalado</i></li>
+    <li><b>Curso Acad&eacute;mico:</b> <i>2013/2014</i></li>
+    <li><b>Fecha de entrega:</b> <i>27 de Mayo de 2014</i></li>
+  </ul>
+  </div>
+</div>
+<div align="center"style='float: clear;background-color: #eeeeee; border:2px solid; border-radius:10px; padding: 10px;'>
+<p><a href='#bloque1'><b>Configurar clientes</b></a> | <a href='#bloque4'><b>Unirse al dominio</b></a> | <a href='#bloque6'><b>Comprobación</b></a></p>
+</div>
+<div style='float:right;bottom:10px;right:10px;background-color: #eeeeee; border:2px solid; border-radius:10px; padding: 10px;position:fixed'>
+<p align="center" ><a href='#cabecera'><b>Cabecera</b></a></p>
+</div>
+<h1><a id='bloque1'>1.Configurar clientes</a></h1>
+<p>
+	<ol type="I"><li>Tenemos que tener una ip diferente en el cliente que en el servidor de dominio para evitar problemas y 
+	añadimos nuestro servidor en el fichero de "/etc/network/interfaces".<br/><br/>
+	<img width="600px" height="500px"src='./files/5.png'/></li><br/>
+	<li>También se puede añadir nuestro servidor mediante el fichero "/etc/resolv.conf"<br/><br/>
+	<img width="600px" height="500px"src='./files/6.png'/></li><br/>
+	<li>Podemos comprobar si el dns y la ip esta correctamente con el siguiente comando y con un ping.<br/><br/>
+	<img src='./files/10.png'/></li><br/>
+	<li>Además añadimos repositorios por si el sistema no encuentra el likewise con los repositorios por defecto, dependiendo de nuestra versión de
+	ubuntu.<br/></li><br/>
+	</ol>
+</p>
+<hr/>
+<h1><a id='bloque4'>2.Unirse al dominio</a></h1>
+
+<h2><a id='bloque5'>2.1 Instalar Likewise</a></h2>
+<p>
+	<ol type="I">
+	<li>Para empezar abrimos una terminar y descargamos los siguientes paquetes: "likewise-open" y "likewise-open-gui"<br/><br/>
+	<img src='./files/1.png'/></li><br/>
+	</ol>
+</p>
+<h2><a>2.2 Configurar Likewise</a></h2>
+<p>
+	<ol type="I">
+	<li>Si no encontramos de manera gráfica el programa likewise lo podemos ejecutar desde la terminal con el comando "domainjoin-gui"<br/><br/>
+	<img src='./files/2.png'/></li><br/>
+	<li>Luego se nos abrirá una ventana y tendremos que poner el nombre de dominio de nuestro servidor, luego el usuario administrador del 
+	dominio y su clave y si está todo correcto se unirá al dominio.
+	la MV se nos unirá al dominio.<br/><br/>
+	<img width="300px" height="250px"src='./files/3.png'/><img width="300px" height="250px"src='./files/4.png'/><br/>
+	<img width="300px" height="250px"src='./files/8.png'/><img width="300px" height="250px"src='./files/9.png'/></li><br/>
+	</ol>
+</p>
+<hr/>
+<h2><a id='bloque6'>3.Comprobación</a></h2>
+<p>
+	<ul>
+	<li>Tras completar los pasos anteriores ahora podemos cerrar seción y entrar con un usuario del dominio.</li><br/>
+	<li>Ejecutamos los siguientes comando para saber que este usuario no está creado en el sistema sino que es un usuario de un dominio, ya que,
+	el cat está vacío si el cat no está vacío significa que el usuario está creado en el sistema.<br/><br/>
+	<img src='./files/11.png'/></li><br/>
+	<li>Para finalizar podemos ir a la máquina del dominio y comprobar que en el Active Directory está añadido un nuevo ordenador.<br/><br/>
+	<img width="600px" height="500px"src='./files/12.png'/></li><br/>
+	</ul>
+</p>
+<hr/>
+</body>
+</html>
