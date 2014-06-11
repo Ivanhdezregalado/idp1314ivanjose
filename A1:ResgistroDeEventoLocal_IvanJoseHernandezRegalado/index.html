@@ -1,0 +1,87 @@
+<html>
+<head>
+	<title>Registro de evento local</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+<body>
+<div id="cabecera" style='display:table-row; padding: 10px;'>
+  <div style='float: left; width=20%; padding:10px;'>
+  <img src='./files/logo.png'/>
+  </div>
+  <div style='float: left;padding:10px'>
+  <ul>
+    <li><b>M&oacute;dulo:</b> <i>Sistemas Operativos</i></li>
+    <li><b>T&iacute;tulo del trabajo</b> <i>Registro de evento local</i></li>
+    <li><b>Componentes del grupo:</b> <i>Iván José Hernández Regalado</i></li>
+    <li><b>Curso Acad&eacute;mico:</b> <i>2013/2014</i></li>
+    <li><b>Fecha de entrega:</b> <i>17 de Junio de 2014</i></li>
+  </ul>
+  </div>
+</div>
+<div align="center"style='float: clear;background-color: #eeeeee; border:2px solid; border-radius:10px; padding: 10px;'>
+<p><a href='#bloque1'><b>1.Registro en Windows</b></a> | <a href='#bloque2'><b>2.Registro en GNU/Linux (GUI)</b></a> | <a href='#bloque3'><b>3.Registro en GNU/Linux (Comandos)</b></a> | <a href='#bloque4'><b>4.Configuración de Logrotate</b></a></p>
+</div>
+<div style='float:right;bottom:10px;right:10px;background-color: #eeeeee; border:2px solid; border-radius:10px; padding: 10px;position:fixed'>
+<p align="center" ><a href='#cabecera'><b>Cabecera</b></a></p>
+</div>
+<h1><a id='bloque1'>1.Registro en Windows</a></h1>
+<p>
+	<ol type="I"><li>Empezamos abriendo una MV Windows 7 y llendo a "directiva de seguridad local" para activar la auditoría de eventos
+	de inicio de sesión de cuenta en la siguiente ruta: "Configuración de seguridad/Directivas locales/Directiva de auditoría".<br/><br/>
+	<img width="600px" height="500px" src='./files/1.png'/></li><br/>
+	<li>Luego creamos 3 usuarios para comprobar que la auditoria registra los eventos de inicio de sesión. y hacemos lo siguiente:<br/><br/>
+	-> El usuario 1 inicia sesión correctamente.<br/>
+	-> El usuario 2 inicia sesión incorrectamente.<br/>
+	-> El usuario 3 no inicia sesión.<br>
+	<img width="600px" height="500px" src='./files/2.png'/>
+	<img width="600px" height="500px" src='./files/3.png'/></li><br/>
+	<li>Ahora vamos al visor de eventos y en la pestaña de seguridad de registros de Windows miramos sale la información siguiente:<br/>
+	<img width="600px" height="500px" src='./files/4.png'/></li><br/>
+	<li>Además guardamos los eventos en formato ".csv".<br/><br/>
+	<a href='./files/registro-windows.csv'><b>Registro de eventos de sesión</b></a></li><br/>
+	</ol>
+</p>
+<hr/>
+<h1><a id='bloque2'>2.Registro en GNU/Linux (GUI)</a></h1>
+<p>
+	<ol type="I">
+	<li>Empezamos cambiando el hostname de la MV debian 7.
+	<br/><br/>
+	<img src='./files/5.png'/></li><br/>
+	<li>Luego vamos a la página oficial de Webmin para descargar el archivo ".deb" y luego instalarlo.<br/><br/>
+	<img src='./files/6.png'/><br/><br/><img src='./files/7.png'/></li><br/>
+	<li>Ahora iniciamos el servicio del webmin con el siguiente comando:<br/><br/>
+	<img src='./files/8.png'/></li><br/>
+	<li>Para ejecutarlo tenemos que ir a un navegador web y poner la ruta "https://localhost:10000" (Entramos con el usuario root y la clave) 
+	y vamos a la pestaña "System/System Logs" para ver los registros.<br/><br/>
+	<img width="600px" height="500px"src='./files/9.png'/><img width="600px" height="500px"src='./files/10.png'/></li><br/>
+	</ol>
+</p>
+<hr/>
+<h1><a id='bloque3'>3.Registro en GNU/Linux (Comandos)</a></h1>
+<p>
+	<ol type="I">
+	<li>Vamos al fichero "/etc/rsyslog.conf" y añadimos lo siguiente para configurar la grabación de nuestros eventos.<br/><br/>
+	<img src='./files/11.png'/></li><br/>
+	<li>Ahora creamos un fichero vacío en "/var/log/ivan/prueba-local.log" y reiniciamos el servicio rsyslog para que carge la nueva configuración.<br/><br/>
+	<img src='./files/12.png'/><img src='./files/13.png'/></li><br/>
+	<li>Luego comprobamos que el fichero está vacío y usamos el comando logger para añadir alguna linea al fichero.<br/><br/>
+	<img src='./files/14.png'/></li><br/>
+	</ol>
+</p>
+<hr/>
+<h1><a id='bloque4'>4.Configuración de Logrotate</a></h1>
+<p>
+	<ol type="I">
+	<li>Primero creamos el archivo "/etc/logrotate.d/ivan" y le añadimos lo siguiente para generar rotaciones de nuestro log.<br/><br/>
+	<img src='./files/15.png'/><img src='./files/16.png'/></li><br/>
+	<li>Ejecutamos el siguiente logger para aumentar de tamaño nuestro archivo .log y luego comprobar que ésta ha crecido.<br/><br/>
+	<img src='./files/18.png'/><img src='./files/19.png'/></li><br/>
+	<li>Para finalizar ejecutamos el comando siguiente "/usr/sbin/logrotate -f /etc/logrotate.conf" para rotar de manera manual el logrotate sin tener que reiniciar el sistema. y comprobar
+	que se creó el archivo comprimido.<br/><br/>
+	<img src='./files/20.png'/><img src='./files/21.png'/></li><br/>
+	</ol>
+</p>
+<hr/>
+</body>
+</html>
